@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: your-fastapi-app
+    env: python
+    runtime: python-3.11.7
+    plan: free # or starter/standard if you’re on paid
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: |
+      uvicorn main:app --host 0.0.0.0 --port $PORT
